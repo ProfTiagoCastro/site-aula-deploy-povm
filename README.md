@@ -9,7 +9,26 @@ e publicá-lo com **Apache**.
 Inclui, na Home:
 - Mensagem de boas-vindas para a turma;
 - Um "terminal" decorativo mostrando os comandos de deploy;
-- O **Jogo do Dado da Sorte** (2 a 6 jogadores, cada um escolhe um número do dado — quem acertar o número sorteado, vence).
+- O **Jogo do Dado da Sorte**, multiplayer: cada aluno entra com nome e matrícula, cria ou
+  entra numa sala (sempre 6 jogadores, um número do dado pra cada um) e quem acertar o
+  número sorteado vence — e ganha ponto no **Ranking Geral**, sempre visível ao lado.
+
+### Sobre o multiplayer
+
+Mesmo cada aluno publicando essa mesma cópia do site na própria VM (IPs diferentes!), todo
+mundo joga junto e disputa o mesmo ranking, porque o estado do jogo (salas, jogadores,
+vitórias) fica num banco **Postgres compartilhado (Neon)**, consultado direto do navegador
+via `fetch` (sem backend — a mesma filosofia "só HTML/CSS/JS" do resto do site).
+
+A string de conexão do Neon está exposta em `js/script.js` de propósito: é uma conta
+gratuita criada só para esta aula, sem dados pessoais nem cobrança, e como o site é 100%
+estático não existe onde esconder uma credencial (não há servidor rodando código só nosso).
+Se for reaproveitar este projeto para algo com dados reais, troque para uma arquitetura com
+backend e variáveis de ambiente.
+
+Uma sala é fechada automaticamente se quem criou fechar ou recarregar a aba (aviso instantâneo
+ao navegador) ou parar de responder por ~30s (sinal de vida periódico) — quem estiver
+esperando nela volta pra tela de escolher/criar sala.
 
 ## Estrutura
 

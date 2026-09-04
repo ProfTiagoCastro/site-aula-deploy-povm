@@ -43,53 +43,79 @@
       </div>
     </section>
 
-    <section class="game container" id="game-section">
-      <div class="game-header">
-        <div>
-          <span class="eyebrow">enquanto o apache reinicia</span>
-          <h2>Jogo do Dado da Sorte</h2>
+    <section class="game-arena container" id="game-section">
+      <div class="game-panel">
+        <span class="eyebrow">sala compartilhada · todo mundo que fez o deploy joga junto</span>
+        <h2>Jogo do Dado da Sorte</h2>
+        <ol class="game-rules">
+          <li>Entre com seu nome e sua matrícula.</li>
+          <li>Crie uma sala ou entre numa que já esteja aberta.</li>
+          <li>A sala só começa com exatos 6 jogadores.</li>
+          <li>Cada jogador crava um número do dado, de 1 a 6 (sem repetir).</li>
+          <li>Com todo mundo escolhido, qualquer um clica em INICIAR.</li>
+          <li>Quem tiver o número sorteado vence — e ganha 1 ponto no ranking.</li>
+        </ol>
+
+        <!-- Tela 1: entrar -->
+        <div id="screen-join" class="screen">
+          <button id="btn-open" class="btn btn-primary">ENTRAR NA SALA</button>
         </div>
-        <button id="btn-history" class="btn-history" aria-expanded="false" aria-controls="history-panel">
-          🏆 Histórico <span class="history-count" id="history-count">0</span>
-        </button>
-      </div>
-      <p class="game-intro">De 2 a 6 jogadores, cada um crava um número do dado. Quem acertar o número que sair, vence!</p>
 
-      <div id="history-panel" class="history-panel hidden">
-        <h3>Vencedores desta sessão</h3>
-        <ol id="history-list" class="history-list"></ol>
-        <p id="history-empty" class="history-empty">Ninguém venceu ainda por aqui.</p>
-      </div>
-
-      <div id="start-screen" class="screen">
-        <button id="btn-start" class="btn btn-primary">INICIAR JOGO</button>
-      </div>
-
-      <div id="setup-screen" class="screen hidden">
-        <div class="setup-row">
-          <label for="player-count">Quantos vão competir? (2 a 6)</label>
-          <input type="number" id="player-count" min="2" max="6" value="2">
-          <button id="btn-generate" class="btn btn-secondary">Definir Jogadores</button>
-        </div>
-        <div id="players-form"></div>
-        <button id="btn-confirm" class="btn btn-primary hidden">Confirmar e Começar</button>
-        <p id="setup-error" class="error-msg"></p>
-      </div>
-
-      <div id="play-screen" class="screen hidden">
-        <div class="dice-area">
-          <div class="dice" id="dice">
-            <div class="dice-face" id="dice-face"></div>
+        <!-- Tela 2: identificação -->
+        <div id="screen-identify" class="screen hidden">
+          <div class="identify-form">
+            <label for="input-name">Seu nome</label>
+            <input type="text" id="input-name" maxlength="60" placeholder="Ex.: Ana Souza" autocomplete="name">
+            <label for="input-matricula">Sua matrícula</label>
+            <input type="text" id="input-matricula" maxlength="30" placeholder="Ex.: 2024104233">
+            <button id="btn-join" class="btn btn-primary">Continuar</button>
+            <p id="identify-error" class="error-msg" aria-live="polite"></p>
           </div>
-          <button id="btn-roll" class="btn btn-primary">Rolar o Dado</button>
         </div>
 
-        <ul id="players-list" class="players-list"></ul>
+        <!-- Tela 3: lista de salas -->
+        <div id="screen-rooms" class="screen hidden">
+          <div class="rooms-header">
+            <p class="rooms-hint">Escolha uma sala pra entrar ou crie a sua:</p>
+            <button id="btn-create-room" class="btn btn-primary">➕ Criar Sala</button>
+          </div>
+          <ul id="rooms-list" class="rooms-list"></ul>
+          <p id="rooms-empty" class="rooms-empty hidden">Nenhuma sala aberta agora — crie a primeira!</p>
+          <p id="rooms-error" class="error-msg" aria-live="polite"></p>
+        </div>
 
-        <p id="round-msg" class="round-msg" aria-live="polite"></p>
+        <!-- Tela 4: sala de espera -->
+        <div id="screen-lobby" class="screen hidden">
+          <p class="lobby-title" id="lobby-title"></p>
+          <p class="lobby-status">Jogadores na sala: <strong id="lobby-count">0</strong>/6</p>
+          <ul id="lobby-list" class="lobby-list"></ul>
 
-        <button id="btn-restart" class="btn btn-secondary hidden">🔁 Jogar Novamente</button>
+          <div class="pick-row">
+            <label for="select-dice">Seu número no dado</label>
+            <select id="select-dice"><option value="">Nº</option></select>
+          </div>
+
+          <button id="btn-launch" class="btn btn-primary" disabled>INICIAR!</button>
+          <p id="lobby-hint" class="lobby-hint">Aguardando os 6 jogadores escolherem um número…</p>
+        </div>
+
+        <!-- Tela 4: resultado -->
+        <div id="screen-result" class="screen hidden">
+          <div class="dice-area">
+            <div class="dice" id="dice">
+              <div class="dice-face" id="dice-face"></div>
+            </div>
+          </div>
+          <p id="result-msg" class="round-msg" aria-live="polite"></p>
+          <button id="btn-again" class="btn btn-secondary hidden">🔁 Jogar Novamente</button>
+        </div>
       </div>
+
+      <aside class="ranking-panel" aria-label="Ranking geral de vitórias">
+        <h3>🏆 Ranking Geral</h3>
+        <ol id="ranking-list" class="ranking-list"></ol>
+        <p id="ranking-empty" class="ranking-empty">Ainda ninguém venceu uma rodada por aqui.</p>
+      </aside>
     </section>
   </main>
 
