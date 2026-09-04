@@ -84,6 +84,12 @@
   const roundMsg = document.getElementById('round-msg');
   const btnRestart = document.getElementById('btn-restart');
 
+  const btnHistory = document.getElementById('btn-history');
+  const historyPanel = document.getElementById('history-panel');
+  const historyList = document.getElementById('history-list');
+  const historyEmpty = document.getElementById('history-empty');
+  const historyCount = document.getElementById('history-count');
+
   const PIP_LAYOUT = {
     1: [5],
     2: [3, 7],
@@ -96,11 +102,44 @@
   let players = [];
   let gameOver = false;
   let rollTimer = null;
+  const winnersHistory = [];
 
   function showScreen(screen) {
     [startScreen, setupScreen, playScreen].forEach((s) => s.classList.add('hidden'));
     screen.classList.remove('hidden');
   }
+
+  function addToHistory(name, value) {
+    winnersHistory.unshift({ name, value });
+    historyCount.textContent = winnersHistory.length;
+
+    historyList.innerHTML = '';
+    winnersHistory.forEach((entry, i) => {
+      const li = document.createElement('li');
+
+      const label = document.createElement('span');
+      const rank = document.createElement('span');
+      rank.className = 'history-rank';
+      rank.textContent = `#${winnersHistory.length - i}`;
+      label.appendChild(rank);
+      label.appendChild(document.createTextNode(entry.name));
+
+      const badge = document.createElement('span');
+      badge.className = 'history-num';
+      badge.textContent = entry.value;
+
+      li.appendChild(label);
+      li.appendChild(badge);
+      historyList.appendChild(li);
+    });
+
+    historyEmpty.classList.toggle('hidden', winnersHistory.length > 0);
+  }
+
+  btnHistory.addEventListener('click', () => {
+    const isHidden = historyPanel.classList.toggle('hidden');
+    btnHistory.setAttribute('aria-expanded', String(!isHidden));
+  });
 
   function renderDiceFace(value) {
     diceFace.innerHTML = '';
@@ -265,6 +304,7 @@
       roundMsg.textContent = `Saiu ${result} — ${winner.name} venceu! 🏆`;
       btnRoll.disabled = true;
       btnRestart.classList.remove('hidden');
+      addToHistory(winner.name, winner.value);
     } else {
       renderPlayersList(null);
       roundMsg.textContent = `Saiu ${result} — ninguém cravou esse número. Rolem de novo!`;
@@ -277,7 +317,8 @@
     players = [];
     playersForm.innerHTML = '';
     btnConfirm.classList.add('hidden');
+    setupError.textContent = '';
     playerCountInput.value = 2;
-    showScreen(startScreen);
+    showScreen(setupScreen);
   });
 })();

@@ -203,6 +203,14 @@ body {
   text-align: center;
 }
 
+.game-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+}
+
 .game h2 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -215,6 +223,90 @@ body {
   color: var(--taupe-500);
   margin-bottom: 28px;
   font-size: 1rem;
+}
+
+.btn-history {
+  cursor: pointer;
+  flex-shrink: 0;
+  background: var(--cream-50);
+  color: var(--maroon-700);
+  border: 1.5px solid var(--maroon-200);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-history:hover { background: var(--maroon-200); }
+.btn-history:focus-visible { outline: 2px solid var(--maroon-600); outline-offset: 2px; }
+
+.history-count {
+  background: var(--maroon-700);
+  color: var(--cream-0);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+}
+
+.history-panel {
+  text-align: left;
+  background: var(--cream-50);
+  border: 1px solid #efe3e1;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+}
+
+.history-panel h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--maroon-900);
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.history-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--cream-0);
+  border: 1px solid #efe3e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.92rem;
+}
+
+.history-list li .history-rank {
+  font-family: var(--font-mono);
+  color: var(--taupe-500);
+  margin-right: 10px;
+}
+
+.history-list li .history-num {
+  font-family: var(--font-mono);
+  color: var(--maroon-700);
+  background: var(--maroon-200);
+  border-radius: 6px;
+  padding: 1px 9px;
+  font-size: 0.85rem;
+}
+
+.history-empty {
+  margin: 0;
+  color: var(--taupe-500);
+  font-size: 0.9rem;
 }
 
 .hidden { display: none !important; }

@@ -44,9 +44,22 @@
     </section>
 
     <section class="game container" id="game-section">
-      <span class="eyebrow">enquanto o apache reinicia</span>
-      <h2>Jogo do Dado da Sorte</h2>
+      <div class="game-header">
+        <div>
+          <span class="eyebrow">enquanto o apache reinicia</span>
+          <h2>Jogo do Dado da Sorte</h2>
+        </div>
+        <button id="btn-history" class="btn-history" aria-expanded="false" aria-controls="history-panel">
+          🏆 Histórico <span class="history-count" id="history-count">0</span>
+        </button>
+      </div>
       <p class="game-intro">De 2 a 6 jogadores, cada um crava um número do dado. Quem acertar o número que sair, vence!</p>
+
+      <div id="history-panel" class="history-panel hidden">
+        <h3>Vencedores desta sessão</h3>
+        <ol id="history-list" class="history-list"></ol>
+        <p id="history-empty" class="history-empty">Ninguém venceu ainda por aqui.</p>
+      </div>
 
       <div id="start-screen" class="screen">
         <button id="btn-start" class="btn btn-primary">INICIAR JOGO</button>
