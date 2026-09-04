@@ -1,5 +1,7 @@
 # Site Aula de Deploy — Univassouras (ADS · Campus Maricá)
 
+> Repositório: https://github.com/ProfTiagoCastro/site-aula-deploy-povm
+
 Site estático simples (HTML + CSS + JS puro, sem build e sem dependências) criado para a
 aula de **Deploy** do curso de ADS. O objetivo é subir este site numa **VM Ubuntu no Azure**
 e publicá-lo com **Apache**.
@@ -63,7 +65,7 @@ curl -I http://localhost
 No seu computador (fora da VM), com o repositório já clonado:
 
 ```bash
-git clone https://github.com/tiagocastroo/site-aula-deploy-povm.git
+git clone https://github.com/ProfTiagoCastro/site-aula-deploy-povm.git
 scp -r site-aula-deploy-povm/* <seu-usuario>@<ip-publico-da-vm>:/tmp/site
 ```
 
