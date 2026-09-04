@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Brasão Univassouras">
+  <defs>
+    <linearGradient id="crest" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2432"/>
+      <stop offset="100%" stop-color="#6e1c28"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield / arch crest -->
+  <path d="M110 8
+           C150 8 182 26 182 26
+           L182 110
+           C182 165 145 200 110 214
+           C75 200 38 165 38 110
+           L38 26
+           C38 26 70 8 110 8 Z"
+        fill="url(#crest)" stroke="#5c1620" stroke-width="3"/>
+
+  <!-- inner scalloped border -->
+  <path d="M110 20
+           C144 20 170 34 170 34
+           L170 108
+           C170 155 140 185 110 198
+           C80 185 50 155 50 108
+           L50 34
+           C50 34 76 20 110 20 Z"
+        fill="none" stroke="#c9a3a9" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Tower -->
+  <g fill="#f7f1ee">
+    <!-- battlements -->
+    <rect x="78" y="46" width="10" height="10"/>
+    <rect x="94" y="46" width="10" height="10"/>
+    <rect x="110" y="46" width="10" height="10"/>
+    <rect x="126" y="46" width="10" height="10"/>
+    <!-- tower body -->
+    <rect x="76" y="56" width="62" height="90" rx="2"/>
+    <!-- door -->
+    <path d="M100 146 L100 116 C100 108 108 102 107 102 C114 102 122 108 122 116 L122 146 Z" fill="#7a2331"/>
+    <!-- windows -->
+    <rect x="86" y="70" width="10" height="16" rx="4" fill="#7a2331"/>
+    <rect x="118" y="70" width="10" height="16" rx="4" fill="#7a2331"/>
+    <rect x="102" y="92" width="12" height="16" rx="4" fill="#7a2331"/>
+    <!-- base ribs -->
+    <rect x="70" y="150" width="74" height="8" rx="2"/>
+    <rect x="66" y="160" width="82" height="8" rx="2"/>
+  </g>
+</svg>

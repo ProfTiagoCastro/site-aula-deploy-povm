@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Univassouras Maricá | Aula de Deploy - ADS</title>
+<meta name="description" content="Site de exemplo da aula de Deploy (ADS) da Univassouras Campus Maricá — publicado numa VM Ubuntu no Azure com Apache.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="assets/logo.png" alt="Univassouras — Campus Universitário de Maricá" class="logo">
+      <span class="header-tag">aula&nbsp;de&nbsp;deploy · ads</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="eyebrow">turma de ADS</span>
+        <h1>O código já existe.<br>Hoje ele vai pro ar.</h1>
+        <p class="hero-msg">
+          Este site é o nosso laboratório da aula: simples de propósito, para vocês
+          baixarem o repositório, subirem numa <strong>VM Ubuntu no Azure</strong> e
+          publicarem com <strong>Apache</strong>. Sem framework, sem build — só HTML,
+          CSS e JS puro, pra ninguém se perder no meio do caminho até o deploy.
+        </p>
+        <p class="hero-msg hero-msg--sign">Bora colocar no ar. 🚀</p>
+      </div>
+
+      <div class="terminal" id="terminal">
+        <div class="terminal-bar">
+          <span class="chip"></span><span class="chip"></span><span class="chip"></span>
+          <span class="terminal-title">aluno@ads-maricá: ~/deploy</span>
+        </div>
+        <pre class="terminal-body" id="terminal-body" aria-live="polite"></pre>
+      </div>
+    </section>
+
+    <section class="game container" id="game-section">
+      <span class="eyebrow">enquanto o apache reinicia</span>
+      <h2>Jogo do Dado da Sorte</h2>
+      <p class="game-intro">De 2 a 6 jogadores, cada um crava um número do dado. Quem acertar o número que sair, vence!</p>
+
+      <div id="start-screen" class="screen">
+        <button id="btn-start" class="btn btn-primary">INICIAR JOGO</button>
+      </div>
+
+      <div id="setup-screen" class="screen hidden">
+        <div class="setup-row">
+          <label for="player-count">Quantos vão competir? (2 a 6)</label>
+          <input type="number" id="player-count" min="2" max="6" value="2">
+          <button id="btn-generate" class="btn btn-secondary">Definir Jogadores</button>
+        </div>
+        <div id="players-form"></div>
+        <button id="btn-confirm" class="btn btn-primary hidden">Confirmar e Começar</button>
+        <p id="setup-error" class="error-msg"></p>
+      </div>
+
+      <div id="play-screen" class="screen hidden">
+        <div class="dice-area">
+          <div class="dice" id="dice">
+            <div class="dice-face" id="dice-face"></div>
+          </div>
+          <button id="btn-roll" class="btn btn-primary">Rolar o Dado</button>
+        </div>
+
+        <ul id="players-list" class="players-list"></ul>
+
+        <p id="round-msg" class="round-msg" aria-live="polite"></p>
+
+        <button id="btn-restart" class="btn btn-secondary hidden">🔁 Jogar Novamente</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Univassouras &middot; Campus Universitário de Maricá</p>
+      <p class="footer-mono">$ deploy --status <span class="dot-ok">online</span></p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
