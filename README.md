@@ -1,9 +1,9 @@
-# Site Aula de Deploy — Univassouras (ADS · Campus Maricá)
+# Site Aula de Deploy — Univassouras (Eng. de Software · Campus Maricá)
 
 > Repositório: https://github.com/ProfTiagoCastro/site-aula-deploy-povm
 
 Site estático simples (HTML + CSS + JS puro, sem build e sem dependências) criado para a
-aula de **Deploy** do curso de ADS. O objetivo é subir este site numa **VM Ubuntu no Azure**
+aula de **Deploy** do curso de Engenharia de Software. O objetivo é subir este site numa **VM Ubuntu no Azure**
 e publicá-lo com **Apache**.
 
 Inclui, na Home:
@@ -40,8 +40,9 @@ esperando nela volta pra tela de escolher/criar sala.
 ├── js/
 │   └── script.js
 ├── assets/
-│   ├── logo.png     (logo oficial Univassouras)
-│   └── logo.svg      (ícone/favicon)
+│   ├── logo.png                      (logo oficial Univassouras)
+│   ├── logo.svg                      (ícone alternativo)
+│   └── universidade-vassouras.png    (favicon)
 └── README.md
 ```
 

@@ -8,7 +8,7 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const lines = [
-    { text: '$ ssh aluno@vm-ads-marica', cmd: true },
+    { text: '$ ssh aluno@vm-eng-software-marica', cmd: true },
     { text: '$ sudo apt update && sudo apt install apache2 -y', cmd: true },
     { text: 'Apache2 instalado', ok: true },
     { text: '$ sudo systemctl enable --now apache2', cmd: true },
